@@ -78,6 +78,9 @@ set hlsearch
 set ignorecase
 set smartcase
 
+" be rid of swp files
+set noswapfile
+
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
 
@@ -135,6 +138,9 @@ set colorcolumn=+1
  " In Git commit messages, also colour the 51st column (for titles)
 autocmd FileType gitcommit set colorcolumn+=51
 
+execute pathogen#infect()
+
+
 "------------------------------------------------------------
 " Indentation options {{{1
 "
@@ -142,8 +148,10 @@ autocmd FileType gitcommit set colorcolumn+=51
 
 " Indentation settings for using 4 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=4
-set softtabstop=4
+set tabstop=8
+set shiftwidth=2
+set softtabstop=2
+set shiftround 
 set expandtab
 
 " Indentation settings for using hard tabs for indent. Display tabs as
