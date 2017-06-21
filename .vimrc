@@ -151,7 +151,7 @@ execute pathogen#infect()
 set tabstop=8
 set shiftwidth=2
 set softtabstop=2
-set shiftround 
+set shiftround
 set expandtab
 
 " Indentation settings for using hard tabs for indent. Display tabs as
@@ -174,3 +174,33 @@ map Y y$
 nnoremap <C-L> :nohl<CR><C-L>
 
 "------------------------------------------------------------
+" plugin related settings
+"
+" ----- NERDTree ------
+" open NERDTree on startup if no other file is opened
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" map a shortcut to NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" ----- ctrlp.vim  ------
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+" ---- syntastic ------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
+
