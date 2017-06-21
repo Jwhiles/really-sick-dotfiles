@@ -173,6 +173,29 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" short cuts for working with tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+map <leader>t<leader> :tabnext
+
+"------------------------------------------------------------
+" appearance
+
+" enable 256 colors
+set t_Co=256
+set term=xterm-256color
+
+" Keep the cursor seven characters from top or bottom of screen
+set so=7
+
 "------------------------------------------------------------
 " plugin related settings
 "
